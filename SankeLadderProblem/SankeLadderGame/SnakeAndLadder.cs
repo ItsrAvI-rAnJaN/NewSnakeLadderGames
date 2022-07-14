@@ -14,7 +14,7 @@ namespace SankeLadderGame
         {
             Console.WriteLine("The Game Begins....\n");
         
-            Console.WriteLine($"Start  Position of Player = {0}",Position);
+            Console.WriteLine("Start  Position of Player = {0}",Position);
         }
 
     }
