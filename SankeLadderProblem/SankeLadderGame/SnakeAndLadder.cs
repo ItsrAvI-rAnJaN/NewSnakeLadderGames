@@ -9,6 +9,7 @@ namespace SankeLadderGame
     public class SnakeAndLadder
     {
         int Player_Position = 0;
+        int NumOfDiceRolls = 0;
         
 
         // Declaring const Variables to Check options...
@@ -31,6 +32,7 @@ namespace SankeLadderGame
                 // To roll the Dice..
                 DiceRolls = random.Next(1, 7);
                 Console.WriteLine("Player gets the Number After Rolling Dice = {0}", DiceRolls);
+                NumOfDiceRolls++;
 
                 // To Check options..
                 CheckOptions = random.Next(0, 3);
@@ -67,6 +69,7 @@ namespace SankeLadderGame
                 Console.WriteLine("Player Current Position : {0}", Player_Position);
             }
             Console.WriteLine("player Win : {0}", Player_Position);
+            Console.WriteLine("Number Of Times Dice Rolls={0}",NumOfDiceRolls);
             
            
 
