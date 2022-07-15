@@ -8,7 +8,7 @@ namespace SankeLadderGame
 {
     public class SnakeAndLadder
     {
-        int Position = 0;
+        int Player_Position = 0;
         
 
         // Declaring const Variables to Check options...
@@ -24,9 +24,9 @@ namespace SankeLadderGame
         {
             Console.WriteLine("The Game Begins....\n");
         
-            Console.WriteLine("Start  Position of Player = {0}",Position);
+            Console.WriteLine("Start  Position of Player = {0}", Player_Position);
 
-            while (Position < 100)
+            while (Player_Position < 100)
             {
                 // To roll the Dice..
                 DiceRolls = random.Next(1, 7);
@@ -38,35 +38,35 @@ namespace SankeLadderGame
                 {
                     case NoPlay:
                         Console.WriteLine("Player Options = NoPlay");
-                        Position=Position;
+                        Player_Position = Player_Position;
                         break;
                     case Ladder:
                         Console.WriteLine("Player Options = Ladder");
-                        if (Position + DiceRolls > 100)
+                        if (Player_Position + DiceRolls > 100)
                         {
-                            Position = Position ;
+                            Player_Position = Player_Position;
                         }
                         else
                         {
-                            Position += DiceRolls;
+                            Player_Position += DiceRolls;
                         }
                         break;
                     case Snake:
                         Console.WriteLine("Player Options = Snake");
 
-                        if (Position > DiceRolls)
+                        if (Player_Position > DiceRolls)
                         {
-                            Position -= DiceRolls;
+                            Player_Position -= DiceRolls;
                         }
                         else
                         {
-                            Position = 0;
+                            Player_Position = 0;
                         }
                         break;
                 }
-                Console.WriteLine("Player Current Position : {0}", Position);
+                Console.WriteLine("Player Current Position : {0}", Player_Position);
             }
-            Console.WriteLine("player Win : {0}",Position);
+            Console.WriteLine("player Win : {0}", Player_Position);
             
            
 
