@@ -9,7 +9,7 @@ namespace SankeLadderGame
     public class SnakeAndLadder
     {
         int Position = 0;
-        int CurrentPosition;
+        
 
         // Declaring const Variables to Check options...
         const int  NoPlay= 0;
@@ -24,38 +24,51 @@ namespace SankeLadderGame
         {
             Console.WriteLine("The Game Begins....\n");
         
-            Console.WriteLine($"Start  Position of Player = {0}",Position);
+            Console.WriteLine("Start  Position of Player = {0}",Position);
 
-            // to roll the Dice..
-            DiceRolls= random.Next(1,7);
-            Console.WriteLine("Player gets the Number After Rolling Dice = {0}",DiceRolls);
-
-            // To Check options..
-            CheckOptions=random.Next(0,3);
-            switch (CheckOptions)
+            while (Position < 100)
             {
-                case NoPlay:
-                    Console.WriteLine("Player Options = NoPlay");
-                    CurrentPosition = Position;
-                    break;
-                case Ladder:
-                    Console.WriteLine("Player Options = Ladder");
-                    CurrentPosition += DiceRolls;
-                    break;
-                case Snake:
-                    Console.WriteLine("Player Options = Snake");
-                    
-                    if(CurrentPosition > DiceRolls)
-                    {
-                        CurrentPosition -= DiceRolls;
-                    }
-                    else
-                    {
-                        CurrentPosition = 0;
-                    }
-                    break;
+                // To roll the Dice..
+                DiceRolls = random.Next(1, 7);
+                Console.WriteLine("Player gets the Number After Rolling Dice = {0}", DiceRolls);
+
+                // To Check options..
+                CheckOptions = random.Next(0, 3);
+                switch (CheckOptions)
+                {
+                    case NoPlay:
+                        Console.WriteLine("Player Options = NoPlay");
+                        Position=Position;
+                        break;
+                    case Ladder:
+                        Console.WriteLine("Player Options = Ladder");
+                        if (Position + DiceRolls > 100)
+                        {
+                            Position = Position ;
+                        }
+                        else
+                        {
+                            Position += DiceRolls;
+                        }
+                        break;
+                    case Snake:
+                        Console.WriteLine("Player Options = Snake");
+
+                        if (Position > DiceRolls)
+                        {
+                            Position -= DiceRolls;
+                        }
+                        else
+                        {
+                            Position = 0;
+                        }
+                        break;
+                }
+                Console.WriteLine("Player Current Position : {0}", Position);
             }
-            Console.WriteLine("Player Current Position : {0}",CurrentPosition);
+            Console.WriteLine("player Win : {0}",Position);
+            
+           
 
         }
 
